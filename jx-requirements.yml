@@ -20,9 +20,9 @@ cluster:
 environments:
 - ingress:
     cloud_dns_secret_name: external-dns-gcp-sa
-    domain: dev.techtur.bid
+    domain: console.techtur.bid
     externalDNS: true
-    namespaceSubDomain: ""
+    namespaceSubDomain: -jx.
     tls:
       email: techturbid@protonmail.com
       enabled: true
@@ -30,25 +30,23 @@ environments:
   key: dev
   repository: environment-techturbid-dev
 - ingress:
-    cloud_dns_secret_name: external-dns-gcp-sa
-    domain: staging.techtur.bid
-    externalDNS: true
+    domain: ""
+    externalDNS: false
     namespaceSubDomain: ""
     tls:
-      email: techturbid@protonmail.com
-      enabled: true
-      production: true
+      email: ""
+      enabled: false
+      production: false
   key: staging
   repository: environment-techturbid-staging
 - ingress:
-    cloud_dns_secret_name: external-dns-gcp-sa
-    domain: techtur.bid
-    externalDNS: true
+    domain: ""
+    externalDNS: false
     namespaceSubDomain: ""
     tls:
-      email: techturbid@protonmail.com
-      enabled: true
-      production: true
+      email: ""
+      enabled: false
+      production: false
   key: production
   repository: environment-techturbid-production
 gitops: true
