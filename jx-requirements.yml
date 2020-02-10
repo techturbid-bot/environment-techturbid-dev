@@ -1,0 +1,41 @@
+cluster:
+  clusterName: "techturbid"
+  devEnvApprovers:
+  - giovannirco
+  environmentGitOwner: "techturbid"
+  environmentGitPublic: true
+  project: "techturbid"
+  provider: gke
+  zone: "us-central1-a"
+gitops: true
+environments:
+- key: dev
+- key: staging
+- key: production
+ingress:
+  domain: ""
+  externalDNS: false
+  tls:
+    email: ""
+    enabled: false
+    production: false
+kaniko: true
+repository: nexus
+secretStorage: vault
+storage:
+  backup:
+    enabled: true
+    url: ""
+  logs:
+    enabled: true
+    url: ""
+  reports:
+    enabled: true
+    url: ""
+  repository:
+    enabled: true
+    url: ""
+versionStream:
+  ref: "master"
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: prow
