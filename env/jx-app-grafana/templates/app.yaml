@@ -1,0 +1,13 @@
+apiVersion: jenkins.io/v1
+kind: App
+metadata:
+  annotations:
+    jenkins.io/chart-description: The Grafana App for Jenkins X
+    jenkins.io/chart-repository: http://chartmuseum.jenkins-x.io
+  creationTimestamp: null
+  labels:
+    chart: jx-app-grafana-0.0.10
+    jenkins.io/app-name: jx-app-grafana
+    jenkins.io/app-version: 0.0.10
+  name: jx-app-grafana-jx-app-grafana
+spec: {}

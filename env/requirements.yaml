@@ -24,3 +24,6 @@ dependencies:
 - name: jx-app-prometheus
   repository: http://chartmuseum.jenkins-x.io
   version: 0.0.3
+- name: jx-app-grafana
+  repository: http://chartmuseum.jenkins-x.io
+  version: 0.0.10
