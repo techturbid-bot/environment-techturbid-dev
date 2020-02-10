@@ -1,0 +1,10 @@
+adminUser:
+  password: vault:techturbid/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: techturbid@protonmail.com
+  token: vault:techturbid/pipelineUser:token
+  username: techturbid-bot
+prow:
+  hmacToken: vault:techturbid/prow:hmacToken

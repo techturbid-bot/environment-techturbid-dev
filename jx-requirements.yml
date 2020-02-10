@@ -1,41 +1,85 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/techturbid/jenkins-x-boot-config
 cluster:
-  clusterName: "techturbid"
+  clusterName: techturbid
   devEnvApprovers:
   - giovannirco
-  environmentGitOwner: "techturbid"
+  - techturbid-bot
+  environmentGitOwner: techturbid
   environmentGitPublic: true
-  project: "techturbid"
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: techturbid
   provider: gke
-  zone: "us-central1-a"
-gitops: true
+  registry: gcr.io
+  zone: us-central1-a
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    cloud_dns_secret_name: external-dns-gcp-sa
+    domain: console.techtur.bid
+    externalDNS: true
+    namespaceSubDomain: -jx.
+    tls:
+      email: techturbid@protonmail.com
+      enabled: true
+      production: true
+  key: dev
+  repository: environment-techturbid-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-techturbid-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-techturbid-production
+gitops: true
 ingress:
-  domain: ""
-  externalDNS: false
+  cloud_dns_secret_name: external-dns-gcp-sa
+  domain: console.techtur.bid
+  externalDNS: true
+  namespaceSubDomain: -jx.
   tls:
-    email: ""
-    enabled: false
-    production: false
+    email: techturbid@protonmail.com
+    enabled: true
+    production: true
 kaniko: true
 repository: nexus
 secretStorage: vault
 storage:
   backup:
-    enabled: true
+    enabled: false
     url: ""
   logs:
     enabled: true
-    url: ""
+    url: gs://techturbid-logs-189a8659-ec9d-43e5-9ac0-d8632af3c194
   reports:
     enabled: true
-    url: ""
+    url: gs://techturbid-reports-5f67a7c2-5177-4f49-9598-71540d6b414a
   repository:
     enabled: true
-    url: ""
+    url: gs://techturbid-repository-88d126e3-a105-49e1-bd01-0e9fc9f28
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.343
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: prow
